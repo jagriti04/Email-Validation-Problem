@@ -14,7 +14,7 @@ public class EmailValidationProblem {
 	
 	public void checkValidEmail() {
 		for(String matchString : emailArray) {
-			String patternString = "^(abc)[a-zA-Z0-9._-]*([@][a-zA-Z0-9]{1,})*([.][a-zA-Z]{2,4})";
+			String patternString = "^(abc)(.[a-zA-Z0-9+_-]{1})[a-zA-Z0-9+_-]*(@[a-zA-Z0-9]{1,})*([.][a-zA-Z]{2,4})";
 			System.out.println("match email: " + matchString);
 			
 			Pattern pattern = Pattern.compile(patternString);
