@@ -6,15 +6,15 @@ import java.util.regex.Pattern;
 
 public class EmailValidationProblem {
 	
-	public static final String[] emailArray =  {"abc", "abc@yahoo.com", "abc-100@yahoo.com", "abc@.com.my",
-			"abc111@abc.com","abc@.com.my", "abc.100@yahoo.com","abc-100@abc.net", "abc.100@abc.com.au",
-			"abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com",
+	public static final String[] emailArray =  {"abc", "abc@yahoo.com", "abc-100@yahoo.com", 
+			"abc111@abc.com","abc.100@yahoo.com","abc-100@abc.net", "abc.100@abc.com.au","abc@1.com", 
+			"abc@gmail.com.com", "abc+100@gmail.com", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com",
 			"abc()*@gmail.com", "abc@%*.com","abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", 
-			"abc@gmail.com.aa.au" }; 
+			"abc@gmail.com.aa.au", "abc@.com.my",  }; 
 	
 	public void checkValidEmail() {
 		for(String matchString : emailArray) {
-			String patternString = "^(abc)[a-zA-Z0-9_-]*[@][a-zA-Z0-9]";
+			String patternString = "^(abc)[a-zA-Z0-9._-]*([@][a-zA-Z0-9]{1,})*([.][a-zA-Z]{2,4})";
 			System.out.println("match email: " + matchString);
 			
 			Pattern pattern = Pattern.compile(patternString);
