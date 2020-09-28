@@ -3,17 +3,18 @@ package com.bridgelabz.emailValid;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+
 public class EmailValidationProblem {
 	
-	public static final String[] emailArray =  {"abc", "abc@yahoo.com", "abc-100@yahoo.com", "cdf@g.com",
-											"abc@.com.my"}; 
+	public static final String[] emailArray =  {"abc", "abc@yahoo.com", "abc-100@yahoo.com", "abc@.com.my",
+			"abc111@abc.com","abc@.com.my", "abc.100@yahoo.com","abc-100@abc.net", "abc.100@abc.com.au",
+			"abc@1.com", "abc@gmail.com.com", "abc+100@gmail.com", "abc123@gmail.a", "abc123@.com", "abc123@.com.com", ".abc@abc.com",
+			"abc()*@gmail.com", "abc@%*.com","abc..2002@gmail.com", "abc.@gmail.com", "abc@abc@gmail.com", "abc@gmail.com.1a", 
+			"abc@gmail.com.aa.au" }; 
 	
-	public static void main(String[] args) {
-		
-		System.out.println("Welcome to the email validation system");
-		
+	public void checkValidEmail() {
 		for(String matchString : emailArray) {
-			String patternString = "^(abc)";
+			String patternString = "^(abc)[a-zA-Z0-9_-]*[@][a-zA-Z0-9]";
 			System.out.println("match email: " + matchString);
 			
 			Pattern pattern = Pattern.compile(patternString);
@@ -27,6 +28,13 @@ public class EmailValidationProblem {
 				System.out.println("The email given is invalid");
 			}			
 		}
+	}
+	
+	public static void main(String[] args) {
+		
+		System.out.println("Welcome to the email validation system");
+		EmailValidationProblem emailValidation = new EmailValidationProblem();
+		emailValidation.checkValidEmail();
 		
 	}
 }
